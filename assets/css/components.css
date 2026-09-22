@@ -318,6 +318,14 @@
 /* Groups carry the structure, so the rows stay quiet: a hairline label,
    then titles with one muted line each. The icon is a mark beside the
    title, not a badge behind it. */
+/* A wide panel puts its groups in columns. Every column is a .pgroup-col,
+   so the stack margin below can only ever apply *within* a column — as
+   siblings in the grid itself, two groups would sit in different columns
+   and the margin would drop the right one half a row. */
+.pgroup-col {
+  min-width: 0;
+}
+
 .pgroup + .pgroup {
   margin-top: var(--space-5);
 }

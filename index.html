@@ -14,10 +14,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
 
   <!-- Flag JS early so the nav's closed states apply before first paint -->
-  <script src="assets/js/head.js?v=202609222247"></script>
-  <link rel="stylesheet" href="assets/css/base.css?v=202609222247" />
-  <link rel="stylesheet" href="assets/css/components.css?v=202609222247" />
-  <link rel="stylesheet" href="assets/css/sections.css?v=202609222247" />
+  <script src="assets/js/head.js?v=202609222255"></script>
+  <link rel="stylesheet" href="assets/css/base.css?v=202609222255" />
+  <link rel="stylesheet" href="assets/css/components.css?v=202609222255" />
+  <link rel="stylesheet" href="assets/css/sections.css?v=202609222255" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -207,7 +207,7 @@
               </button>
               <div class="panel panel--wide" id="panel-care">
                 <div class="panel__groups">
-                  <div>
+                  <div class="pgroup-col">
                     <div class="pgroup">
                       <span class="pgroup__label">Treatment</span>
                       <ul class="panel__list">
@@ -266,7 +266,7 @@
                     </div>
                   </div>
 
-                  <div>
+                  <div class="pgroup-col">
                     <div class="pgroup">
                       <span class="pgroup__label">Diagnostics</span>
                       <ul class="panel__list">
@@ -404,88 +404,92 @@
               </button>
               <div class="panel panel--wide panel--right" id="panel-hospital">
                 <div class="panel__groups">
-                  <div class="pgroup">
-                    <span class="pgroup__label">The hospital</span>
-                    <ul class="panel__list">
-                      <li>
-                        <a class="pitem" href="/about-our-emergency-hospital">
-                          <svg class="pitem__icon" aria-hidden="true"><use href="#icon-building"/></svg>
-                          <span class="pitem__text">
-                            <span class="pitem__title">About Mason Dixon</span>
-                            <span class="pitem__desc">Who we are and how we work.</span>
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="pitem" href="/meet-our-team">
-                          <svg class="pitem__icon" aria-hidden="true"><use href="#icon-users"/></svg>
-                          <span class="pitem__text">
-                            <span class="pitem__title">Our Team</span>
-                            <span class="pitem__desc">The doctors and nurses on shift.</span>
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="pitem" href="/explore-our-facility">
-                          <svg class="pitem__icon" aria-hidden="true"><use href="#icon-home"/></svg>
-                          <span class="pitem__text">
-                            <span class="pitem__title">Our Facility</span>
-                            <span class="pitem__desc">A look inside the hospital.</span>
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="pitem" href="/careers">
-                          <svg class="pitem__icon" aria-hidden="true"><use href="#icon-briefcase"/></svg>
-                          <span class="pitem__text">
-                            <span class="pitem__title">Careers</span>
-                            <span class="pitem__desc">Open roles on our team.</span>
-                          </span>
-                        </a>
-                      </li>
-                    </ul>
+                  <div class="pgroup-col">
+                    <div class="pgroup">
+                      <span class="pgroup__label">The hospital</span>
+                      <ul class="panel__list">
+                        <li>
+                          <a class="pitem" href="/about-our-emergency-hospital">
+                            <svg class="pitem__icon" aria-hidden="true"><use href="#icon-building"/></svg>
+                            <span class="pitem__text">
+                              <span class="pitem__title">About Mason Dixon</span>
+                              <span class="pitem__desc">Who we are and how we work.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/meet-our-team">
+                            <svg class="pitem__icon" aria-hidden="true"><use href="#icon-users"/></svg>
+                            <span class="pitem__text">
+                              <span class="pitem__title">Our Team</span>
+                              <span class="pitem__desc">The doctors and nurses on shift.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/explore-our-facility">
+                            <svg class="pitem__icon" aria-hidden="true"><use href="#icon-home"/></svg>
+                            <span class="pitem__text">
+                              <span class="pitem__title">Our Facility</span>
+                              <span class="pitem__desc">A look inside the hospital.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/careers">
+                            <svg class="pitem__icon" aria-hidden="true"><use href="#icon-briefcase"/></svg>
+                            <span class="pitem__text">
+                              <span class="pitem__title">Careers</span>
+                              <span class="pitem__desc">Open roles on our team.</span>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
 
-                  <div class="pgroup">
-                    <span class="pgroup__label">For pet owners</span>
-                    <ul class="panel__list">
-                      <li>
-                        <a class="pitem" href="/reviews">
-                          <svg class="pitem__icon" aria-hidden="true"><use href="#icon-star"/></svg>
-                          <span class="pitem__text">
-                            <span class="pitem__title">Reviews &amp; Testimonials</span>
-                            <span class="pitem__desc">What other families have said.</span>
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="pitem" href="/blog">
-                          <svg class="pitem__icon" aria-hidden="true"><use href="#icon-book"/></svg>
-                          <span class="pitem__text">
-                            <span class="pitem__title">Resources / Blog</span>
-                            <span class="pitem__desc">Guides and reading for pet owners.</span>
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="pitem" href="/grief-counseling">
-                          <svg class="pitem__icon" aria-hidden="true"><use href="#icon-heart"/></svg>
-                          <span class="pitem__text">
-                            <span class="pitem__title">Grief Counseling</span>
-                            <span class="pitem__desc">Support after losing a pet.</span>
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="pitem" href="/additional-pet-care-resources">
-                          <svg class="pitem__icon" aria-hidden="true"><use href="#icon-paw"/></svg>
-                          <span class="pitem__text">
-                            <span class="pitem__title">Additional Pet Resources</span>
-                            <span class="pitem__desc">Local services beyond emergency care.</span>
-                          </span>
-                        </a>
-                      </li>
-                    </ul>
+                  <div class="pgroup-col">
+                    <div class="pgroup">
+                      <span class="pgroup__label">For pet owners</span>
+                      <ul class="panel__list">
+                        <li>
+                          <a class="pitem" href="/reviews">
+                            <svg class="pitem__icon" aria-hidden="true"><use href="#icon-star"/></svg>
+                            <span class="pitem__text">
+                              <span class="pitem__title">Reviews &amp; Testimonials</span>
+                              <span class="pitem__desc">What other families have said.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/blog">
+                            <svg class="pitem__icon" aria-hidden="true"><use href="#icon-book"/></svg>
+                            <span class="pitem__text">
+                              <span class="pitem__title">Resources / Blog</span>
+                              <span class="pitem__desc">Guides and reading for pet owners.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/grief-counseling">
+                            <svg class="pitem__icon" aria-hidden="true"><use href="#icon-heart"/></svg>
+                            <span class="pitem__text">
+                              <span class="pitem__title">Grief Counseling</span>
+                              <span class="pitem__desc">Support after losing a pet.</span>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="pitem" href="/additional-pet-care-resources">
+                            <svg class="pitem__icon" aria-hidden="true"><use href="#icon-paw"/></svg>
+                            <span class="pitem__text">
+                              <span class="pitem__title">Additional Pet Resources</span>
+                              <span class="pitem__desc">Local services beyond emergency care.</span>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -672,6 +676,6 @@
     </div>
   </main>
 
-  <script type="module" src="assets/js/main.js?v=202609222247"></script>
+  <script type="module" src="assets/js/main.js?v=202609222255"></script>
 </body>
 </html>
