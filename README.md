@@ -47,6 +47,26 @@ largas y necesita el ancho.
 Your Visit, Our Hospital, Contact Us) y el teléfono. Los referrals viven dentro de
 Contact Us; no hay pestaña separada de "For Veterinarians".
 
+## Paneles
+
+Los 30 destinos llevan un ícono y una línea sobre qué son, para que el panel se lea de
+un vistazo en vez de tener que descifrarlo. Las descripciones de servicios son las del
+propio sitio (sección *services* de su `index.html`), no texto inventado.
+
+- **Emergency Care** y **Our Hospital** abren en dos columnas (10 y 8 destinos).
+  En una sola columna se pasaban del fold en una pantalla de 720p.
+- **Symptoms & Conditions** arranca con *Is This an Emergency?* como bloque destacado
+  en rojo — es lo primero que alguien en pánico tiene que encontrar.
+- **Contact Us** cierra con la dirección y un botón de llamada, así no hace falta
+  abrir una página para conseguir el dato.
+- En el drawer las descripciones se ocultan: ahí estás scrolleando una lista, y con
+  descripciones Emergency Care ocupaba una pantalla entera de teléfono.
+
+El sprite de íconos copia el del sitio hasta `#icon-star`; los ocho de abajo
+(`alert`, `clipboard`, `layers`, `credit-card`, `help`, `building`, `book`, `send`)
+son agregados del menú, dibujados con la misma especificación (24×24, trazo 1.8,
+puntas redondeadas).
+
 ## Responsive
 
 La barra baja en tres etapas antes de convertirse en drawer, porque cinco etiquetas

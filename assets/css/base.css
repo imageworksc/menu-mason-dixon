@@ -74,8 +74,8 @@
   --logo-h: 3.55rem; /* the site uses 3.85rem, but it carries five short
                         links; five dropdown labels need the width back */
   --nav-btn-pad: 0.7rem;
-  --panel-w: 21rem;
-  --panel-w-wide: 40rem; /* two-column panel (Emergency Care) */
+  --panel-w: 24rem;
+  --panel-w-wide: 44rem; /* two-column panels (Emergency Care, Our Hospital) */
   --shadow-panel: 0 20px 40px -18px rgba(16, 24, 64, 0.26), 0 2px 6px rgba(16, 24, 64, 0.05);
 }
 

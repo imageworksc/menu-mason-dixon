@@ -277,7 +277,7 @@
   top: 100%;
   left: 0;
   width: var(--panel-w);
-  padding: var(--space-5) var(--space-2) var(--space-4);
+  padding: var(--space-4) var(--space-3) var(--space-3);
   background: #fff;
   border: 1px solid var(--color-border);
   border-top: 0;
@@ -315,37 +315,196 @@
   right: 0;
 }
 
-.panel a {
-  display: block;
-  padding: var(--space-3) var(--space-4);
+/* Panel row: icon tile + destination + one line on what it is. The line is
+   what turns a list of nouns into something scannable at 3am. */
+.pitem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3);
   border-radius: var(--radius-md);
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--color-slate);
+  transition: background-color var(--transition);
+}
+
+.pitem:hover {
+  background: var(--color-bg-light);
+}
+
+.pitem__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-faq);
+  color: var(--color-navy);
   transition: background-color var(--transition), color var(--transition);
 }
 
-.panel a:hover {
-  background: var(--color-bg-light);
+.pitem:hover .pitem__icon {
+  background: var(--color-navy);
+  color: #fff;
+}
+
+.pitem__icon svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.pitem__text,
+.pfeat__text {
+  min-width: 0;
+}
+
+.pitem__title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.925rem;
+  line-height: 1.25;
   color: var(--color-navy);
 }
 
-.panel a.panel__lead {
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--color-red);
-  margin-bottom: var(--space-1);
+.pitem__desc {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--color-gray);
 }
 
-.panel a.panel__lead:hover {
+/* The one destination someone in a panic should hit first. */
+.pfeat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-md);
   background: var(--color-red-tint);
+  border: 1px solid rgba(192, 29, 46, 0.16);
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.pfeat:hover {
+  background: #f8e2e6;
+  border-color: rgba(192, 29, 46, 0.32);
+}
+
+.pfeat__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  background: var(--color-red);
+  color: #fff;
+}
+
+.pfeat__icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.pfeat__eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-red);
+}
+
+.pfeat__title {
+  display: block;
+  margin-top: 0.1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
   color: var(--color-red-dark);
 }
 
-/* Emergency Care carries ten destinations. In one column the panel runs
-   past the fold on a 720p laptop, so it splits in two for as long as it is
-   a dropdown at all (i.e. everywhere above the drawer breakpoint). */
+.pfeat__desc {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--color-slate);
+}
+
+.pfeat__arrow {
+  margin-left: auto;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--color-red);
+  transition: transform var(--transition);
+}
+
+.pfeat:hover .pfeat__arrow {
+  transform: translateX(3px);
+}
+
+/* Contact's panel ends with the details you would otherwise have to open
+   a page to find. */
+.pfoot {
+  margin-top: var(--space-2);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-navy);
+  color: var(--text-on-dark-secondary);
+}
+
+.pfoot__status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-open-soft);
+}
+
+.pfoot__addr {
+  margin-top: var(--space-2);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.pfoot__call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-red);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  transition: background-color var(--transition);
+}
+
+.pfoot__call:hover {
+  background: var(--color-red-dark);
+}
+
+.pfoot__call svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Ten and eight destinations respectively. In one column those panels run
+   past the fold on a 720p laptop, so they split in two for as long as they
+   are dropdowns at all (i.e. above the drawer breakpoint). */
 @media (min-width: 1121px) {
   .panel--wide {
     width: var(--panel-w-wide);
@@ -452,6 +611,9 @@
     --header-h: 4.75rem;
     --logo-h: 2.9rem;
     --nav-btn-pad: 0.5rem;
+    /* Emergency Care sits mid-row, so its left-aligned panel runs off the
+       right edge here at the full width. */
+    --panel-w-wide: 40rem;
   }
 
   .navbar__inner {
@@ -609,12 +771,28 @@
     display: block;
   }
 
-  .panel a {
-    display: flex;
+  /* In the drawer you scroll a list rather than scan a panel, and the
+     descriptions would push Emergency Care past a whole phone screen. */
+  .pitem__desc {
+    display: none;
+  }
+
+  .pitem {
     align-items: center;
     min-height: 3rem;
-    padding: var(--space-3) var(--space-4);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .pitem__icon {
+    background: #fff;
+  }
+
+  .pitem__title {
     font-size: 1rem;
+  }
+
+  .pfeat {
+    padding: var(--space-3);
   }
 
   .nav__util {
