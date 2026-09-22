@@ -67,6 +67,7 @@
      site needs them. */
   --color-open: #66d08e; /* 24/7 status dot + Careers accent on navy */
   --color-open-soft: #8fe0a8; /* hover state for the same pair */
+  --color-open-ink: #1f9d57; /* the same dot, on a light surface */
   --color-red-tint: #fbedef; /* wash behind the lead link on panel hover */
 
   --alert-h: 2.875rem; /* utility tier */
@@ -74,9 +75,12 @@
   --logo-h: 3.55rem; /* the site uses 3.85rem, but it carries five short
                         links; five dropdown labels need the width back */
   --nav-btn-pad: 0.7rem;
-  --panel-w: 24rem;
-  --panel-w-wide: 44rem; /* two-column panels (Emergency Care, Our Hospital) */
-  --shadow-panel: 0 20px 40px -18px rgba(16, 24, 64, 0.26), 0 2px 6px rgba(16, 24, 64, 0.05);
+  --panel-w: 22rem;
+  --panel-w-wide: 40rem; /* two-column panels (Emergency Care, Our Hospital) */
+  /* Three tight layers rather than one soft cloud — a dropdown should sit
+     on the page, not float above it. */
+  --shadow-panel: 0 1px 1px rgba(16, 24, 64, 0.05), 0 8px 16px -6px rgba(16, 24, 64, 0.14),
+    0 24px 40px -20px rgba(16, 24, 64, 0.22);
 }
 
 /* Large-display scaling: everything is rem-based, so bumping the root

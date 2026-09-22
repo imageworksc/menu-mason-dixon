@@ -245,7 +245,7 @@
   left: var(--nav-btn-pad);
   right: var(--nav-btn-pad);
   bottom: 27%; /* proportional, so it keeps its gap as the bar steps down */
-  height: 2.5px;
+  height: 2px;
   border-radius: 2px;
   background: var(--color-red);
   transform: scaleX(0);
@@ -315,14 +315,32 @@
   right: 0;
 }
 
-/* Panel row: icon tile + destination + one line on what it is. The line is
-   what turns a list of nouns into something scannable at 3am. */
+/* Groups carry the structure, so the rows stay quiet: a hairline label,
+   then titles with one muted line each. The icon is a mark beside the
+   title, not a badge behind it. */
+.pgroup + .pgroup {
+  margin-top: var(--space-5);
+}
+
+.pgroup__label {
+  display: block;
+  padding: 0 var(--space-2) var(--space-2);
+  margin-bottom: var(--space-1);
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+}
+
 .pitem {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-3);
-  padding: var(--space-3);
-  border-radius: var(--radius-md);
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
   transition: background-color var(--transition);
 }
 
@@ -332,24 +350,17 @@
 
 .pitem__icon {
   flex: none;
-  display: grid;
-  place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: var(--radius-md);
-  background: var(--color-bg-faq);
-  color: var(--color-navy);
-  transition: background-color var(--transition), color var(--transition);
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.12rem;
+  color: var(--color-gray);
+  opacity: 0.55;
+  transition: color var(--transition), opacity var(--transition);
 }
 
 .pitem:hover .pitem__icon {
-  background: var(--color-navy);
-  color: #fff;
-}
-
-.pitem__icon svg {
-  width: 1.125rem;
-  height: 1.125rem;
+  color: var(--color-red);
+  opacity: 1;
 }
 
 .pitem__text,
@@ -361,101 +372,71 @@
   display: block;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.925rem;
-  line-height: 1.25;
+  font-size: 0.875rem;
+  line-height: 1.35;
   color: var(--color-navy);
 }
 
 .pitem__desc {
   display: block;
-  margin-top: 0.1rem;
-  font-size: 0.8rem;
-  line-height: 1.35;
+  font-size: 0.75rem;
+  line-height: 1.4;
   color: var(--color-gray);
 }
 
-/* The one destination someone in a panic should hit first. */
-.pfeat {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-4);
+/* The one destination someone in a panic should hit first: a red rule and
+   a hairline, not a card. */
+.panel__lead {
+  padding-bottom: var(--space-2);
   margin-bottom: var(--space-2);
-  border-radius: var(--radius-md);
-  background: var(--color-red-tint);
-  border: 1px solid rgba(192, 29, 46, 0.16);
-  transition: background-color var(--transition), border-color var(--transition);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pfeat {
+  position: relative;
+  display: block;
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition);
+}
+
+.pfeat::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: var(--space-2);
+  bottom: var(--space-2);
+  width: 2px;
+  border-radius: 2px;
+  background: var(--color-red);
 }
 
 .pfeat:hover {
-  background: #f8e2e6;
-  border-color: rgba(192, 29, 46, 0.32);
-}
-
-.pfeat__icon {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--radius-md);
-  background: var(--color-red);
-  color: #fff;
-}
-
-.pfeat__icon svg {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.pfeat__eyebrow {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-red);
+  background: var(--color-red-tint);
 }
 
 .pfeat__title {
   display: block;
-  margin-top: 0.1rem;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.2;
-  color: var(--color-red-dark);
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: var(--color-red);
 }
 
 .pfeat__desc {
   display: block;
-  margin-top: 0.15rem;
-  font-size: 0.8rem;
-  line-height: 1.35;
+  font-size: 0.78rem;
+  line-height: 1.4;
   color: var(--color-slate);
 }
 
-.pfeat__arrow {
-  margin-left: auto;
-  width: 1.1rem;
-  height: 1.1rem;
-  color: var(--color-red);
-  transition: transform var(--transition);
-}
-
-.pfeat:hover .pfeat__arrow {
-  transform: translateX(3px);
-}
-
-/* Contact's panel ends with the details you would otherwise have to open
-   a page to find. */
+/* Contact's panel ends with the details you would otherwise open a page
+   to find — set as a colophon, not a widget. */
 .pfoot {
-  margin-top: var(--space-2);
-  padding: var(--space-4);
-  border-radius: var(--radius-md);
-  background: var(--color-navy);
-  color: var(--text-on-dark-secondary);
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-2) 0;
+  border-top: 1px solid var(--color-border);
 }
 
 .pfoot__status {
@@ -464,56 +445,54 @@
   gap: var(--space-2);
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-open-soft);
+  color: var(--color-navy);
+}
+
+.pfoot__status .status__dot {
+  background: var(--color-open-ink);
+  box-shadow: none;
+  animation: none;
 }
 
 .pfoot__addr {
   margin-top: var(--space-2);
-  font-size: 0.8rem;
-  line-height: 1.45;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--color-gray);
 }
 
 .pfoot__call {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  margin-top: var(--space-3);
   min-height: 2.75rem;
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-md);
-  background: var(--color-red);
-  color: #fff;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1rem;
-  transition: background-color var(--transition);
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+  transition: color var(--transition);
 }
 
 .pfoot__call:hover {
-  background: var(--color-red-dark);
-}
-
-.pfoot__call svg {
-  width: 1rem;
-  height: 1rem;
+  color: var(--color-red);
 }
 
 /* Ten and eight destinations respectively. In one column those panels run
-   past the fold on a 720p laptop, so they split in two for as long as they
-   are dropdowns at all (i.e. above the drawer breakpoint). */
+   past the fold on a 720p laptop, so their groups split into two columns
+   for as long as they are dropdowns at all. */
 @media (min-width: 1121px) {
   .panel--wide {
     width: var(--panel-w-wide);
   }
 
-  .panel--wide .panel__list {
+  .panel--wide .panel__groups {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: var(--space-2);
+    column-gap: var(--space-5);
+    align-items: start;
   }
 }
 
@@ -784,15 +763,34 @@
   }
 
   .pitem__icon {
-    background: #fff;
+    margin-top: 0;
+    opacity: 0.7;
   }
 
   .pitem__title {
     font-size: 1rem;
   }
 
+  .pgroup + .pgroup {
+    margin-top: var(--space-4);
+  }
+
+  .pgroup__label {
+    padding-inline: var(--space-3);
+    border-bottom-color: rgba(36, 38, 103, 0.12);
+  }
+
   .pfeat {
-    padding: var(--space-3);
+    padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4);
+  }
+
+  .pfeat::before {
+    top: var(--space-3);
+    bottom: var(--space-3);
+  }
+
+  .pfoot {
+    padding-inline: var(--space-3);
   }
 
   .nav__util {
