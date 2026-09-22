@@ -1,0 +1,83 @@
+/* =========================================================================
+   Mason Dixon Animal Emergency Hospital — Navigation menu
+   sections.css — the spec sheet that sits under the header on this preview.
+   None of this ships with the menu; it exists so the header has a page to
+   sit on and something to scroll against.
+   ========================================================================= */
+
+.spec {
+  padding-block: var(--section-space);
+  background: var(--color-bg-light);
+}
+
+.spec__head {
+  max-width: 44rem;
+  margin-bottom: var(--space-7);
+}
+
+.spec__head p {
+  margin-top: var(--space-4);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-gray);
+}
+
+.spec__head a {
+  color: var(--color-navy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  transition: color var(--transition);
+}
+
+.spec__head a:hover {
+  color: var(--color-red);
+}
+
+.spec__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: var(--space-4);
+}
+
+.spec__card {
+  padding: var(--space-6);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.spec__card h2 {
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-3);
+}
+
+.spec__card p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.spec__card em {
+  color: var(--color-navy);
+  font-style: italic;
+}
+
+.spec code,
+.spec kbd {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  color: var(--color-navy);
+  background: var(--color-bg-faq);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.4em;
+}
+
+.spec kbd {
+  border: 1px solid var(--color-border);
+  border-bottom-width: 2px;
+  font-weight: 600;
+  white-space: nowrap;
+}
