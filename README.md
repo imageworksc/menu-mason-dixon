@@ -22,6 +22,18 @@ assets/images/logo.png  el logo real del sitio (327×94)
 scripts/stamp-assets.js sella `?v=` en las referencias CSS/JS
 ```
 
+## Convenciones de código
+
+Mismas reglas que el repo del sitio:
+
+- `index.html` es **solo markup**. Cero `style=""`, cero bloques `<style>`, cero
+  handlers inline (`onclick=`…). Los dos scripts se cargan por `src`.
+- Los estilos viven en los tres CSS; el comportamiento, en los dos JS. El JS tampoco
+  escribe estilos: el bloqueo de scroll del drawer es una clase (`body.nav-open`), no
+  `element.style`.
+- `assets/js/main.js` es un módulo ES: `const` y `let`, arrow functions, un `init` por
+  feature. No hay `var` en el proyecto.
+
 ## Design system
 
 Todos los colores, tamaños, radios, sombras y curvas de easing salen de `DESIGN.md`.
@@ -88,9 +100,25 @@ largas + el wordmark + el teléfono no entran en una sola fila a cualquier ancho
 | ≤ 600px | logo 2.25rem, se oculta la segunda nota de estado |
 | ≤ 380px | todo se comprime para que entre en 320px |
 
-Verificado en 24 anchos de escritorio (320–2560px) y 19 de drawer: sin scroll
-horizontal, sin colisiones entre logo / nav / CTA, y con todos los paneles contenidos
-dentro del viewport incluso en una pantalla de 720p.
+Hacia arriba no hay breakpoints de layout: todo está en `rem` y lo que crece es la raíz,
+así el menú mantiene sus proporciones en vez de quedar como una franja en el centro de
+un monitor grande.
+
+| Viewport | `html` |
+|---|---|
+| < 1920px | 16px |
+| ≥ 1920px | 17px |
+| ≥ 2560px | 20px |
+| ≥ 3440px | 24px |
+| ≥ 3840px (4K) | 28px |
+| ≥ 5120px (5K) | 36px |
+
+A 5K el contenedor mide 80rem × 36px = 2880px. Verificado en **35 anchos de escritorio
+(1121 → 5120)**, **19 de drawer (320 → 1120)** y **3 de teléfono en horizontal**
+(932×430, 844×390, 740×360): sin scroll horizontal, sin colisiones entre logo / nav /
+CTA, la raíz escalando en cada escalón, los paneles contenidos dentro del viewport
+—con altura realista por resolución, no 720p fingido en 5K— y el drawer scrolleando
+con el último link alcanzable en pantallas de 360px de alto.
 
 ## Accesibilidad
 
