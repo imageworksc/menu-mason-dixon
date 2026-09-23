@@ -61,13 +61,9 @@ Contact Us; no hay pestaña separada de "For Veterinarians".
 
 ## Paneles
 
-Los 30 destinos están repartidos en **10 grupos con nombre**, y cada uno lleva una línea
-sobre qué es. La estructura la cargan los grupos — etiqueta chica en versalitas sobre
-una línea de 1px — así las filas pueden quedarse calladas: título, descripción apagada,
-y un ícono de 16px al lado, sin recuadro de color detrás.
-
-Las descripciones de servicios son las del propio sitio (sección *services* de su
-`index.html`), no texto inventado.
+Los 30 destinos están repartidos en **10 grupos con nombre**. La estructura la cargan
+los grupos — etiqueta chica en versalitas sobre una línea de 1px — así las filas se
+quedan calladas: solo el título y un ícono de 16px al lado, sin recuadro de color detrás.
 
 - **Emergency Care** (Treatment · Stabilization / Diagnostics · Continuing care) y
   **Our Hospital** (The hospital / For pet owners) abren en dos columnas. En una sola
@@ -76,8 +72,10 @@ Las descripciones de servicios son las del propio sitio (sección *services* de 
   roja y separado por una línea — no una tarjeta.
 - **Contact Us** cierra con un colofón: estado, dirección y el teléfono como número
   tipográfico grande, no como botón.
-- En el drawer las descripciones se ocultan: ahí estás scrolleando una lista, y con
-  descripciones Emergency Care ocupaba una pantalla entera de teléfono.
+
+Cada panel está dimensionado al título más largo que contiene (`--panel-w: 21rem`,
+`--panel-w-wide: 33rem`), así ningún título se parte en dos líneas. El harness falla si
+alguno lo hace.
 
 El rojo se gasta en una sola cosa por panel como máximo, para que siga significando algo
 cuando aparece.
