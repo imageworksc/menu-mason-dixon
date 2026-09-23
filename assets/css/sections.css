@@ -1,138 +1,14 @@
 /* =========================================================================
    Mason Dixon Animal Emergency Hospital — Navigation menu
-   sections.css — the spec sheet under the header on this preview. None of
-   it ships with the menu; it exists so the header has a page to sit on and
-   something to scroll against.
+   sections.css — preview scaffold only.
+
+   The menu itself is base.css + components.css; those two are what moves
+   into the site. This file exists so the preview page has somewhere for the
+   sticky header to scroll against. It holds no content and ships nothing —
+   drop it and the <link> to it when the menu moves.
    ========================================================================= */
 
-.spec {
-  padding-block: var(--space-9) var(--space-10);
-}
-
-.spec__inner {
-  display: grid;
-  gap: var(--space-7);
-}
-
-@media (min-width: 900px) {
-  .spec__inner {
-    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
-    gap: var(--space-9);
-    align-items: start;
-  }
-
-  .spec__head {
-    position: sticky;
-    top: calc(var(--alert-h) + var(--header-h) + var(--space-7));
-  }
-}
-
-.spec__kicker {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.6875rem;
-  line-height: 1.5;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-wrap: balance;
-  color: var(--color-gray);
-}
-
-.spec__head h1 {
-  margin-top: var(--space-3);
-  font-size: clamp(1.75rem, 2vw + 1rem, 2.5rem);
-}
-
-.spec__lede {
-  margin-top: var(--space-4);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--color-slate);
-}
-
-.spec__lede a {
-  color: var(--color-navy);
-  font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
-  text-decoration-thickness: 1px;
-  text-decoration-color: var(--color-border);
-  transition: text-decoration-color var(--transition), color var(--transition);
-}
-
-.spec__lede a:hover {
-  color: var(--color-red);
-  text-decoration-color: currentColor;
-}
-
-/* A colophon, not a card grid: one hairline-separated row per fact. */
-.spec__list {
-  margin: 0;
-}
-
-.spec__row {
-  display: grid;
-  gap: var(--space-2);
-  padding-block: var(--space-5);
-  border-top: 1px solid var(--color-border);
-}
-
-.spec__row:last-child {
-  border-bottom: 1px solid var(--color-border);
-}
-
-@media (min-width: 640px) {
-  .spec__row {
-    grid-template-columns: 8.5rem minmax(0, 1fr);
-    column-gap: var(--space-5);
-    row-gap: var(--space-2);
-  }
-
-  /* A row can carry a second paragraph; without this it would fall into
-     the label column and wrap to a ribbon. */
-  .spec__row dd {
-    grid-column: 2;
-  }
-}
-
-.spec__row dt {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.6875rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-gray);
-  padding-top: 0.3rem;
-}
-
-.spec__row dd {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--color-slate);
-}
-
-.spec__row em {
-  color: var(--color-navy);
-  font-style: italic;
-}
-
-.spec__row b {
-  color: var(--color-navy);
-  font-weight: 600;
-}
-
-.spec code,
-.spec kbd {
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  font-size: 0.85em;
-  color: var(--color-navy);
-}
-
-.spec kbd {
-  padding: 0.05em 0.35em;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  white-space: nowrap;
+.preview {
+  display: block;
+  min-height: 150vh;
 }

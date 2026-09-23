@@ -345,7 +345,7 @@
 
 .pitem {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-2);
   padding: var(--space-2);
   border-radius: var(--radius-sm);
@@ -360,6 +360,7 @@
   flex: none;
   width: 1rem;
   height: 1rem;
+  margin-top: 0.12rem;
   color: var(--color-gray);
   opacity: 0.55;
   transition: color var(--transition), opacity var(--transition);
@@ -370,13 +371,25 @@
   opacity: 1;
 }
 
-.pitem__title {
+.pitem__text,
+.pfeat__text {
   min-width: 0;
+}
+
+.pitem__title {
+  display: block;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.35;
   color: var(--color-navy);
+}
+
+.pitem__desc {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--color-gray);
 }
 
 /* The one destination someone in a panic should hit first: a red rule and
@@ -417,6 +430,13 @@
   font-size: 0.95rem;
   line-height: 1.3;
   color: var(--color-red);
+}
+
+.pfeat__desc {
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--color-slate);
 }
 
 /* Contact's panel ends with the details you would otherwise open a page
@@ -578,6 +598,9 @@
     --header-h: 4.75rem;
     --logo-h: 2.9rem;
     --nav-btn-pad: 0.5rem;
+    /* Emergency Care sits mid-row, so its left-aligned panel runs off the
+       right edge here at the full width. */
+    --panel-w-wide: 40rem;
   }
 
   .navbar__inner {
@@ -735,13 +758,20 @@
     display: block;
   }
 
-  /* Rows grow to a proper tap target in the drawer. */
+  /* In the drawer you scroll a list rather than scan a panel, and the
+     descriptions would push Emergency Care past a whole phone screen. */
+  .pitem__desc {
+    display: none;
+  }
+
   .pitem {
+    align-items: center;
     min-height: 3rem;
     padding: var(--space-2) var(--space-3);
   }
 
   .pitem__icon {
+    margin-top: 0;
     opacity: 0.7;
   }
 
