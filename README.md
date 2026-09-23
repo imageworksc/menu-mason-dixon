@@ -4,10 +4,30 @@ Header de dos niveles para Mason Dixon Animal Emergency Hospital, construido sob
 design system del sitio principal
 ([imageworksc/mason-dixon](https://github.com/imageworksc/mason-dixon) → `DESIGN.md`).
 
-**Demo en vivo:** https://imageworksc.github.io/menu-mason-dixon/
+## Las dos versiones
 
-La página de la demo está en blanco a propósito: solo el menú, sobre un lienzo vacío de
-150vh para que se pueda ver el comportamiento sticky del header al scrollear.
+| | Link | Diferencia |
+|---|---|---|
+| **A** | https://imageworksc.github.io/menu-mason-dixon/ | Con íconos en las filas de los desplegables |
+| **B** | https://imageworksc.github.io/menu-mason-dixon/no-icons/ | Sin esos íconos |
+
+En la B se van **solo** los íconos de las filas de los desplegables. Se quedan el maletín
+de Careers y el portapapeles de Patient Intake Form, los chevrones de las pestañas, el
+teléfono del CTA y el botón de menú.
+
+`no-icons/index.html` **se genera, no se edita a mano** — así las dos páginas no se
+pueden desincronizar. Comparten los mismos CSS y JS; lo único distinto es el markup, que
+sale de `index.html`:
+
+```
+node scripts/stamp-assets.js && node scripts/build-variant.js
+```
+
+El script borra las 29 filas de íconos y, de paso, los 21 símbolos del sprite que quedan
+sin usar, así la variante no arrastra peso muerto.
+
+Las páginas están en blanco a propósito: solo el menú, sobre un lienzo vacío de 150vh
+para que se pueda ver el comportamiento sticky del header al scrollear.
 
 Para llevarlo al sitio hacen falta solo `base.css` + `components.css` + los dos JS.
 `sections.css` es andamiaje de la preview y se descarta junto con su `<link>`.
@@ -18,7 +38,8 @@ Misma organización de archivos que el repo del sitio, para que el menú se pued
 tal cual:
 
 ```
-index.html              solo markup — sin estilos ni scripts inline
+index.html              versión A — solo markup, sin estilos ni scripts inline
+no-icons/index.html     versión B — generada desde index.html, no editar a mano
 assets/css/base.css     tokens, escalado para pantallas grandes, reset, tipografía
 assets/css/components.css  barra utility, header, nav, paneles, drawer
 assets/css/sections.css    andamiaje de la preview — no es parte del menú
@@ -26,6 +47,7 @@ assets/js/head.js       una línea, síncrona: agrega la clase `js` antes del pr
 assets/js/main.js       módulo ES, un init por feature
 assets/images/logo.png  el logo real del sitio (327×94)
 scripts/stamp-assets.js sella `?v=` en las referencias CSS/JS
+scripts/build-variant.js genera no-icons/ desde index.html
 ```
 
 ## Convenciones de código
@@ -149,8 +171,9 @@ con el último link alcanzable en pantallas de 360px de alto.
 GitHub Pages sirve `main` desde la raíz. Antes de commitear:
 
 ```
-node scripts/stamp-assets.js
+node scripts/stamp-assets.js && node scripts/build-variant.js
 ```
 
-Eso actualiza el `?v=` de los CSS/JS para que Pages no sirva archivos viejos durante
-los 10 minutos de caché.
+Lo primero actualiza el `?v=` de los CSS/JS para que Pages no sirva archivos viejos
+durante los 10 minutos de caché. Lo segundo regenera `no-icons/` desde `index.html`,
+heredando ese mismo sello — de ahí que el orden importe.
