@@ -36,15 +36,17 @@ for (const [block, id] of symbols) {
 /* A comment can be left stranded once its symbols go. */
 html = html.replace(/^[ \t]*<!-- Menu additions: [^\n]*\n(?=\s*<\/defs>)/m, "");
 
-/* 3. Careers becomes "Now Hiring", rolling to "Apply Here" — in the utility
-      tier and the drawer, not the Our Hospital dropdown row. */
-const careers = /(<a (?:class="util__job" )?href="\/careers">\s*<svg aria-hidden="true"><use href="#icon-briefcase"\/><\/svg>\s*)Careers(?=\s*<\/a>)/g;
+/* 3. Careers becomes "Now Hiring", rolling to "Apply Here" on hover — in the
+      utility tier and the drawer, not the Our Hospital dropdown row. */
+const careers = /<a (?:class="util__job" )?href="\/careers">(\s*<svg aria-hidden="true"><use href="#icon-briefcase"\/><\/svg>\s*)Careers(?=\s*<\/a>)/g;
 const flipped = (html.match(careers) || []).length;
 html = html.replace(
   careers,
-  '$1<span class="sr-only">Now Hiring — Apply Here</span>' +
+  (match, icon) =>
+    `<a class="${match.includes("util__job") ? "util__job " : ""}is-hiring" href="/careers">${icon}` +
+    '<span class="sr-only">Now Hiring — Apply Here</span>' +
     '<span class="job-flip" aria-hidden="true"><span class="job-flip__track">' +
-    "<span>Now Hiring</span><span>Apply Here</span><span>Now Hiring</span>" +
+    '<span>Now Hiring</span><span>Apply Here <span class="job-flip__arrow">→</span></span>' +
     "</span></span>",
 );
 
