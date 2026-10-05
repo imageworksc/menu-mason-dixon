@@ -16,7 +16,7 @@ de Careers y el portapapeles de Patient Intake Form, los chevrones de las pesta�
 teléfono del CTA y el botón de menú.
 
 Además, en la B el enlace Careers de la barra superior y del menú móvil dice **Now Hiring**
-(una píldora verde) y al pasar el cursor rueda a **Apply Here →**. La fila Careers del
+(subrayado) y al pasar el cursor rueda a **Apply Here →**. La fila Careers del
 desplegable Our Hospital no cambia.
 
 `no-icons/index.html` **se genera, no se edita a mano** — así las dos páginas no se

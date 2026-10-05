@@ -159,32 +159,18 @@
   96% { transform: rotate(0); }
 }
 
-/* Now Hiring (no-icons page only): a green pill that fills solid on hover,
-   while the label rolls up to "Apply Here →". */
-.util__links .is-hiring {
-  border: 1px solid rgba(102, 208, 142, 0.5);
-  background: rgba(102, 208, 142, 0.14);
-  color: var(--color-open-soft);
-  transition: background-color var(--transition), color var(--transition),
-    box-shadow var(--transition), transform 240ms var(--ease-spring);
-}
-
-.util__links .is-hiring:hover,
-.util__links .is-hiring:focus-visible {
-  background: var(--color-open);
-  color: var(--color-navy-dark);
-  box-shadow: 0 0 0 4px rgba(102, 208, 142, 0.25), 0 6px 16px rgba(102, 208, 142, 0.35);
-  transform: translateY(-1px);
-}
-
-.util__links .is-hiring:hover svg,
-.util__links .is-hiring:focus-visible svg {
-  color: var(--color-navy-dark);
+/* Now Hiring (no-icons page only): underlined, and on hover the label rolls
+   up to "Apply Here →". Each line is 1.5em tall so the underline clears the
+   clip; the negative margin keeps the text centred with its neighbours. */
+.util__links .is-hiring,
+.util__links .is-hiring:hover {
+  color: var(--text-on-dark);
 }
 
 .job-flip {
   display: inline-block;
-  height: 1.25em;
+  height: 1.5em;
+  margin-bottom: -0.25em;
   line-height: 1.25em;
   overflow: hidden;
 }
@@ -192,17 +178,20 @@
 .job-flip__track {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   transition: transform 320ms var(--ease-out);
 }
 
 .job-flip__track > span {
-  height: 1.25em;
+  height: 1.5em;
   white-space: nowrap;
+  text-decoration: underline 2px;
+  text-underline-offset: 0.2em;
 }
 
 .is-hiring:hover .job-flip__track,
 .is-hiring:focus-visible .job-flip__track {
-  transform: translateY(-1.25em);
+  transform: translateY(-1.5em);
 }
 
 .job-flip__arrow {
@@ -882,11 +871,6 @@
     width: 1.05rem;
     height: 1.05rem;
     color: var(--color-red);
-  }
-
-  .nav__util .is-hiring,
-  .nav__util .is-hiring svg {
-    color: var(--color-open-ink);
   }
 }
 
