@@ -36,10 +36,22 @@ for (const [block, id] of symbols) {
 /* A comment can be left stranded once its symbols go. */
 html = html.replace(/^[ \t]*<!-- Menu additions: [^\n]*\n(?=\s*<\/defs>)/m, "");
 
-/* 3. The variant sits one directory down. */
+/* 3. Careers becomes "Now Hiring", rolling to "Apply Here" — in the utility
+      tier and the drawer, not the Our Hospital dropdown row. */
+const careers = /(<a (?:class="util__job" )?href="\/careers">\s*<svg aria-hidden="true"><use href="#icon-briefcase"\/><\/svg>\s*)Careers(?=\s*<\/a>)/g;
+const flipped = (html.match(careers) || []).length;
+html = html.replace(
+  careers,
+  '$1<span class="sr-only">Now Hiring — Apply Here</span>' +
+    '<span class="job-flip" aria-hidden="true"><span class="job-flip__track">' +
+    "<span>Now Hiring</span><span>Apply Here</span><span>Now Hiring</span>" +
+    "</span></span>",
+);
+
+/* 4. The variant sits one directory down. */
 html = html.replace(/(href|src)="assets\//g, '$1="../assets/');
 
-/* 4. Say which page this is. */
+/* 5. Say which page this is. */
 html = html
   .replace("<title>Navigation Menu —", "<title>Navigation Menu, no row icons —")
   .replace(
@@ -57,5 +69,9 @@ fs.writeFileSync(path.join(outDir, "index.html"), html);
 console.log(`no-icons/index.html: removed ${removed} row icons, dropped ${dropped} unused sprite symbols`);
 if (removed !== 29) {
   console.error(`expected 29 row icons, found ${removed}`);
+  process.exit(1);
+}
+if (flipped !== 2) {
+  console.error(`expected 2 Careers links to relabel, found ${flipped}`);
   process.exit(1);
 }

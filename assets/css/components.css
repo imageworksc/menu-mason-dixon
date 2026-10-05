@@ -159,6 +159,32 @@
   96% { transform: rotate(0); }
 }
 
+/* "Now Hiring" rolls up to "Apply Here" and back (no-icons page only). The
+   track repeats the first label so the loop restarts on an identical frame. */
+.job-flip {
+  display: inline-block;
+  height: 1.25em;
+  line-height: 1.25em;
+  overflow: hidden;
+}
+
+.job-flip__track {
+  display: flex;
+  flex-direction: column;
+  animation: job-flip 5s ease-in-out infinite;
+}
+
+.job-flip__track > span {
+  height: 1.25em;
+  white-space: nowrap;
+}
+
+@keyframes job-flip {
+  0%, 42% { transform: translateY(0); }
+  50%, 92% { transform: translateY(-1.25em); }
+  100% { transform: translateY(-2.5em); }
+}
+
 /* ---------------------------------------------------------------------
    3. Tier 2 — header shell
    --------------------------------------------------------------------- */
