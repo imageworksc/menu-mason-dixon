@@ -160,8 +160,9 @@
 }
 
 /* Now Hiring (no-icons page only): underlined, and on hover the label rolls
-   up to "Apply Here →". Each line is 1.5em tall so the underline clears the
-   clip; the negative margin keeps the text centred with its neighbours. */
+   up to "Apply Here →". Each label sits in a 1.5em box, the same height as a
+   line of body text, with its leading on top so the underline clears the
+   clip at the bottom. */
 .util__links .is-hiring,
 .util__links .is-hiring:hover {
   color: var(--text-on-dark);
@@ -170,7 +171,6 @@
 .job-flip {
   display: inline-block;
   height: 1.5em;
-  margin-bottom: -0.25em;
   line-height: 1.25em;
   overflow: hidden;
 }
@@ -184,6 +184,7 @@
 
 .job-flip__track > span {
   height: 1.5em;
+  padding-top: 0.125em;
   white-space: nowrap;
   text-decoration: underline 2px;
   text-underline-offset: 0.2em;
@@ -196,6 +197,7 @@
 
 .job-flip__arrow {
   display: inline-block;
+  margin-left: 0.3em;
 }
 
 .is-hiring:hover .job-flip__arrow,

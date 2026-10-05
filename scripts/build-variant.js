@@ -46,7 +46,7 @@ html = html.replace(
     `<a class="${match.includes("util__job") ? "util__job " : ""}is-hiring" href="/careers">${icon}` +
     '<span class="sr-only">Now Hiring — Apply Here</span>' +
     '<span class="job-flip" aria-hidden="true"><span class="job-flip__track">' +
-    '<span>Now Hiring</span><span>Apply Here <span class="job-flip__arrow">→</span></span>' +
+    '<span>Now Hiring</span><span>Apply Here<span class="job-flip__arrow">→</span></span>' +
     "</span></span>",
 );
 
